@@ -20,6 +20,9 @@
   --color-primary-4: #440AC0;
   --color-primary-5: #32009C;
 
+  --color-neutral-1: #F7F7F7;
+  --color-neutral-2: #D1BBBB;
+  --color-neutral-2: #A68080;
 }
 
 body, html {
