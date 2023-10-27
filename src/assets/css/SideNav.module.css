@@ -68,12 +68,18 @@
   justify-self: end;
   border-radius: 12px 0px 0px 12px;
   gap: 24px;
+  transition: .3s;
+
 }
 
 .task:not(.taskActive):hover{
   cursor: pointer;
-  outline: 1px solid var(--color-base-8);
 }
+
+.task:not(.taskActive):hover p{
+  color: var(--color-neutral-2);
+}
+
 
 .taskActive:hover {
   cursor: default;
