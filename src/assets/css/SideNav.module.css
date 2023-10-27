@@ -1,0 +1,15 @@
+.sideBarContainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 372px;
+  height: 100vh;
+  background-color: #3D3A50;
+}
+
+.title {
+  margin: 10%;
+  font-family: Inria Sans;
+  font-size: 32px;
+  font-weight: 400;
+}
