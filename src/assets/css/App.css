@@ -11,8 +11,8 @@
   --color-base-6: #3D3A50;
   --color-base-7: #2A283C;
   --color-base-8: #181624;
-  --color-base-8: #0D0C15;
-  --color-base-9: #05040A;
+  --color-base-9: #0D0C15;
+  --color-base-10: #05040A;
 
   --color-primary-1: #CC4CF9;
   --color-primary-2: #7138EC;
@@ -31,4 +31,15 @@ body, html {
   padding: 0;
   position: relative;
   background-color: var(--color-base-8);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+
+input, textarea:focus, input:focus, select:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
 }

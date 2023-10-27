@@ -32,7 +32,7 @@ function SideNav() {
         </div>
 
         <div className={`${styles.task} ${styles.taskDesactive}`} id='task1'>
-          <p>Compras no Supermercado. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita est optio temporibus inventore autem commodi nesciunt placeat aliquam, suscipit sunt numquam vero explicabo ducimus odit nihil ex, cum dolores dicta?</p>
+          <p>Churras do Diego</p>
         </div>
       </div>
       

@@ -1,9 +1,8 @@
 .sideBarContainer {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  position: relative;
   width: 372px;
   height: 100vh;
+  z-index: 10;
   background-color: #3D3A50;
 }
 
@@ -67,11 +66,11 @@
   justify-content: space-around;
   align-items: center;
   justify-self: end;
-  border-radius: 5px 0px 0px 5px;
-  gap: 20px;
+  border-radius: 12px 0px 0px 12px;
+  gap: 24px;
 }
 
-.task:hover {
+.task:not(.taskActive):hover{
   cursor: pointer;
   outline: 1px solid var(--color-base-8);
 }
@@ -85,7 +84,7 @@
   padding: 0;
   color: var(--color-neutral-1);
   white-space: nowrap;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -99,7 +98,7 @@
 .deleteTask {
   flex-grow: 0;
   min-width: 18px;
-  min-height: 12px;
+  min-height: 14px;
 }
 
 .deleteTask svg {

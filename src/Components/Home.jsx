@@ -1,12 +1,18 @@
-import React from 'react'
+import React from 'react';
+import '../assets/css/App.css';
 import { Route, Routes } from 'react-router-dom'
+import SideNav from './SideNav'
+import TaskContext from './TaskContext'
 
 function Home() {
   return (
-    <Routes>
-      
-
-    </Routes>
+    <main>
+      <SideNav />
+      <section>
+        <TaskContext />
+      </section>
+    </main>
+    
   )
 }
 
