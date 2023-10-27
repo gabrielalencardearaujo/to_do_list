@@ -48,3 +48,65 @@
 .iconsDiv .icon:hover path {
   fill: var(--color-base-3);
 }
+
+/* Tasks */
+
+.taskContainer {
+  display: grid;
+  justify-content: end;
+  gap: 5px;
+  margin-top: 50px;
+}
+
+.task {
+  display: flex;
+  width: 335px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  justify-content: space-around;
+  align-items: center;
+  justify-self: end;
+  border-radius: 5px 0px 0px 5px;
+  gap: 20px;
+}
+
+.task:hover {
+  cursor: pointer;
+  outline: 1px solid var(--color-base-8);
+}
+
+.taskActive:hover {
+  cursor: default;
+}
+
+.task p {
+  margin: 0;
+  padding: 0;
+  color: var(--color-neutral-1);
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+} 
+
+.taskActive {
+  background-color: var(--color-base-8);
+}
+
+.deleteTask {
+  flex-grow: 0;
+  min-width: 18px;
+  min-height: 12px;
+}
+
+.deleteTask svg {
+  max-width: 15px;
+  max-height: 15px;
+}
+
+.deleteTask:hover {
+  cursor: pointer;
+}
