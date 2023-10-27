@@ -34,6 +34,17 @@
   align-items: center;
   width: 100%;
   height: 60px;
-  gap: 20px;
+  gap: 16px;
   padding-right: 18px;
+}
+
+.iconsDiv .icon {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  padding: 10px 0px;
+}
+
+.iconsDiv .icon:hover path {
+  fill: var(--color-base-3);
 }
