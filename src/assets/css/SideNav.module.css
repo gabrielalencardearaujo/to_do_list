@@ -80,7 +80,6 @@
   color: var(--color-neutral-2);
 }
 
-
 .taskActive:hover {
   cursor: default;
 }
