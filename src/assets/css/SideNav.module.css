@@ -102,13 +102,13 @@
 
 .deleteTask {
   flex-grow: 0;
-  min-width: 18px;
-  min-height: 14px;
+  min-width: 20px;
+  min-height: 20px;
 }
 
 .deleteTask svg {
-  max-width: 15px;
-  max-height: 15px;
+  max-width: 20px;
+  max-height: 20px;
 }
 
 .deleteTask:hover {

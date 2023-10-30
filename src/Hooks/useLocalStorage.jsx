@@ -1,53 +1,27 @@
 import React from 'react';
 
 function useLocalStorage() {
-  const [storage, setStorage] = React.useState({});
-  const [data, setData] = React.useState([])
+  const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    const ls = localStorage.getItem('taks');
+    const local = window.localStorage.getItem('tasks');
 
-    if(!ls) {
-      setLocalStorage([]);
-      setData(JSON.parse(window.localStorage.getItem('tasks')));
-    } else {
-      setData(JSON.parse(ls));
-    }
+    if(local) setData(JSON.parse(local));
+    else setData([]);
+
   }, [])
 
   React.useEffect(() => {
-    const saveTask = setTimeout(() => {
-      console.log(storage)
-
-      if(data.length === 0 ) {
-        data.push(storage);
-      } else {
-        data.forEach((value) => {
-          if(storage.id === value.id) {
-            value.title = storage.title;
-            value.content = storage.content;
-          }
-        })
-      }
-      setLocalStorage(data)
-      console.log(data)
-      
-    }, 2000)
-
-    return () => {
-      clearTimeout(saveTask);
-    }
-  }, [storage, data]);
+    setLocalStorage(data);
+  }, [data])
 
   function setLocalStorage(value) {
-    const json = JSON.stringify(value);
-    localStorage.setItem('taks', json);
+    window.localStorage.setItem('tasks', JSON.stringify(value))
   }
 
   return{
-    storage,
-    setStorage,
-    setLocalStorage,
+    data,
+    setData,
   }
 }
 

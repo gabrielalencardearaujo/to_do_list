@@ -3,18 +3,28 @@ import styles from '../assets/css/SideNav.module.css';
 import {ReactComponent as IconFolder } from '../assets/img/iconFolder.svg';
 import {ReactComponent as IconFile} from '../assets/img/iconFile.svg';
 import {ReactComponent as DeleteTask} from '../assets/img/deleteTask.svg';
+import Task from './Task';
+import useLocalStorage from '../Hooks/useLocalStorage';
 
-function SideNav() {
+const newTask = (id) => {
+  return {id: 'task' + id,
+  title: 'undefined',
+  body: '',
+  }
+};
 
+function SideNav({data, setData}) {
+  // const [taskActive, setTaskActive] = React.useState('');
+
+  // Criar um novo arquivo/task
   function handleClick() {
-    console.log('criar task ou folder');
+    if(data.length === 0) setData([newTask(data.length)]);
 
+    if(data.length > 0 && data[data.length - 1].title !== 'undefined') 
+      setData((value) => [...value, newTask(data.length)])
+      // setTaskActive(newTask(data.length))
   }
-
-  function handleDelete(){
-    console.log('deletar task');
-  }
-
+  
   return (
     <section className={styles.sideBarContainer}>
       <div className={styles.title}>To do List</div>
@@ -24,15 +34,18 @@ function SideNav() {
       </div>
 
       <div className={styles.taskContainer}>
-        <div className={`${styles.task} ${styles.taskActive}`} id='task1'>
-          <p className={styles.deleteTask} onClick={handleDelete}>
-            <DeleteTask  />
-          </p>
-          <p>Compras no Supermercado. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita est optio temporibus inventore autem commodi nesciunt placeat aliquam, suscipit sunt numquam vero explicabo ducimus odit nihil ex, cum dolores dicta?</p>
-        </div>
+        {data && data.map((task, index) => (
+          <Task 
+          key={index}
+          title={task.title}
+          id={task.id}
+          setData={setData}
+          data={data}
+           />
+        ))}
 
         <div className={`${styles.task} ${styles.taskDesactive}`} id='task1'>
-          <p>Churras do Diego</p>
+          <p>Churrasco do Diego</p>
         </div>
       </div>
       

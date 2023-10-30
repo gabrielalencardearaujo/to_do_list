@@ -1,18 +1,17 @@
 import React from 'react';
 import '../assets/css/App.css';
-import { Route, Routes } from 'react-router-dom'
 import SideNav from './SideNav'
 import TaskContext from './TaskContext'
 import useLocalStorage from '../Hooks/useLocalStorage';
 
 function Home() {
-  const {setStorage, storage} = useLocalStorage();
+  const {data, setData} = useLocalStorage();
 
   return (
     <main>
-      <SideNav />
+      <SideNav setData={setData} data={data} />
       <section>
-        <TaskContext setStorage={setStorage} />
+        <TaskContext />
       </section>
     </main>
     
