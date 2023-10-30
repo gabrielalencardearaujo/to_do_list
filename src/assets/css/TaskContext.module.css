@@ -1,4 +1,5 @@
 .container {
+  display: grid;
   min-width: 480px;
   /* height: 100%; */
 }

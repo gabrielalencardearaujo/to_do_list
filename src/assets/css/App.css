@@ -25,7 +25,7 @@
   --color-neutral-2: #A68080;
 }
 
-body, html {
+body, html, h1 {
   font-family: var(--font-family);
   margin: 0;
   padding: 0;

@@ -1,3 +1,23 @@
-.container {
-  
+.containerHome {
+  font-family: 'Inria Sans', sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-base-6);
+}
+
+.containerHome > div {
+  height: 230px;
+  width: 400px;
+}
+
+.containerHome h1 {
+  font-size: 64px;
+  font-weight: 400;
+  margin-bottom: 60px;
+}
+
+.containerHome p {
+  font-size: 32px;
+  font-weight: 400;
 }
