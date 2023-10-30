@@ -3,9 +3,19 @@ import styles from '../assets/css/TaskContext.module.css';
 import { ReactComponent as CloseTask } from '../assets/img/deleteTask.svg';
 import { ReactComponent as EditTask } from '../assets/img/iconPencilEdit.svg';
 
-function TaskContext({setStorage}) {
+function TaskContext({taskActive}) {
   const [valueTitle, setValueTitle] = React.useState('Compras no Mercado.');
   const [valueText, setValueText] = React.useState('');
+
+  React.useEffect(() => {
+    if(taskActive.title !== undefined) {
+      setValueText(taskActive.body);
+      setValueTitle(taskActive.title);
+    } else {
+      setValueText('');
+      setValueTitle('')
+    }
+  }, [taskActive])
 
   function handleHeight({target}) {
     target.style.height = '300px';
@@ -14,24 +24,16 @@ function TaskContext({setStorage}) {
 
   function handleChangeTitle({target}) {
     setValueTitle(target.value)
-    setStorage({
-      title: target.value,
-      content: valueText,
-      id: target.id,
-    });
+   
   }
 
   function handleChangeContent({target}) {
     setValueText(target.value)
-    setStorage({
-      title: valueTitle,
-      content: target.value,
-      id: target.id,
-    });
+   
   }
 
   return (
-    <section className={styles.container}>
+    <div>
       <div className={styles.containerIcons}>
         <EditTask className={styles.closeTask} />
         <CloseTask className={styles.closeTask} />
@@ -54,8 +56,20 @@ function TaskContext({setStorage}) {
         ></textarea>
 
       </article>
-    </section>
+    </div>
   )
 }
 
 export default TaskContext
+
+ // setStorage({
+    //   title: target.value,
+    //   content: valueText,
+    //   id: target.id,
+    // });
+
+    // setStorage({
+    //   title: valueTitle,
+    //   content: target.value,
+    //   id: target.id,
+    // });

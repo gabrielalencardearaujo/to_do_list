@@ -13,16 +13,19 @@ const newTask = (id) => {
   }
 };
 
-function SideNav({data, setData}) {
-  // const [taskActive, setTaskActive] = React.useState('');
+function SideNav({data, setData, setTaskActive}) {
 
   // Criar um novo arquivo/task
   function handleClick() {
-    if(data.length === 0) setData([newTask(data.length)]);
-
-    if(data.length > 0 && data[data.length - 1].title !== 'undefined') 
-      setData((value) => [...value, newTask(data.length)])
-      // setTaskActive(newTask(data.length))
+    const ID = newTask(data.length);
+    
+    if(data.length === 0) {
+      setData([ID]);
+      setTaskActive({...ID})
+    } else if(data[data.length - 1].title !== 'undefined' ) {
+      setData((value) => [...value, ID])
+      setTaskActive({...ID})
+    }
   }
   
   return (
@@ -41,6 +44,7 @@ function SideNav({data, setData}) {
           id={task.id}
           setData={setData}
           data={data}
+          setTaskActive={setTaskActive}
            />
         ))}
 

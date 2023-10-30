@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactComponent as DeleteTaskSVG } from '../assets/img/deleteTask.svg';
 import styles from '../assets/css/SideNav.module.css';
 
-function Task({ title, id, data, setData }) {
+function Task({ title, id, data, setData, setTaskActive}) {
 
   function handleDelete({target}){
     const ID = target.parentElement.parentElement.id || target.parentElement.id
@@ -11,6 +11,7 @@ function Task({ title, id, data, setData }) {
       return task.id !== ID;
     })
     setData(newData);
+    setTaskActive({})
   }
 
   return (
