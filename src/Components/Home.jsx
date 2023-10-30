@@ -20,7 +20,7 @@ function Home() {
         {(taskActive.title === undefined) ? (
           <TaskHome />
         ) : (
-          <TaskContext taskActive={taskActive} setData={setData} />
+          <TaskContext taskActive={taskActive} setData={setData} data={data} />
         )}
       </section>
     </main>

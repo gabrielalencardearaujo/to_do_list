@@ -2,16 +2,8 @@ import React from 'react';
 import styles from '../assets/css/SideNav.module.css';
 import {ReactComponent as IconFolder } from '../assets/img/iconFolder.svg';
 import {ReactComponent as IconFile} from '../assets/img/iconFile.svg';
-import {ReactComponent as DeleteTask} from '../assets/img/deleteTask.svg';
 import Task from './Task';
-import useLocalStorage from '../Hooks/useLocalStorage';
-
-const newTask = (id) => {
-  return {id: 'task' + id,
-  title: 'undefined',
-  body: '',
-  }
-};
+import useLocalStorage, { newTask } from '../Hooks/useLocalStorage';
 
 function SideNav({data, setData, setTaskActive}) {
 

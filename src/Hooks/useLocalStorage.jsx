@@ -1,5 +1,13 @@
 import React from 'react';
 
+export const newTask = (id, title = 'undefined', body = '') => {
+  console.log(title, body)
+  return {id: 'task' + id,
+  title: title,
+  body: body,
+  }
+};
+
 function useLocalStorage() {
   const [data, setData] = React.useState([]);
 
