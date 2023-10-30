@@ -59,6 +59,10 @@ input.title::before {
   background-color: var(--color-primary-3);
 }
 
+input.title::placeholder {
+  color: var(--color-base-6);
+}
+
 .context {
   color: var(--color-neutral-1);
   font-size: 24px;

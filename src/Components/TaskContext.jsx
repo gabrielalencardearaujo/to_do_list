@@ -4,11 +4,16 @@ import { ReactComponent as CloseTask } from '../assets/img/deleteTask.svg';
 import { ReactComponent as EditTask } from '../assets/img/iconPencilEdit.svg';
 
 function TaskContext({taskActive}) {
-  const [valueTitle, setValueTitle] = React.useState('Compras no Mercado.');
+  const [valueTitle, setValueTitle] = React.useState('');
   const [valueText, setValueText] = React.useState('');
 
+  function handleHeight({target}) {
+    target.style.height = '300px';
+    target.style.height = (target.scrollHeight) + 'px';
+  }
+
   React.useEffect(() => {
-    if(taskActive.title !== undefined) {
+    if(taskActive.title !== 'undefined') {
       setValueText(taskActive.body);
       setValueTitle(taskActive.title);
     } else {
@@ -17,19 +22,8 @@ function TaskContext({taskActive}) {
     }
   }, [taskActive])
 
-  function handleHeight({target}) {
-    target.style.height = '300px';
-    target.style.height = (target.scrollHeight) + 'px';
-  }
-
-  function handleChangeTitle({target}) {
-    setValueTitle(target.value)
-   
-  }
-
-  function handleChangeContent({target}) {
-    setValueText(target.value)
-   
+  function handleFocus() {
+    console.log('Desfocado')
   }
 
   return (
@@ -44,15 +38,18 @@ function TaskContext({taskActive}) {
         className={styles.title} 
         type='text'
         value={valueTitle}
-        onChange={handleChangeTitle}
+        onChange={({target}) => setValueTitle(target.value)}
+        placeholder={(taskActive.title) ? 'undefined' : ''}
+        onBlur={handleFocus}
         />
 
         <textarea 
         id='idTextarea'
         className={styles.context} 
         value={valueText}
-        onChange={handleChangeContent}
+        onChange={({target}) => setValueText(target.value)}
         onInput={handleHeight}
+        onBlur={handleFocus}
         ></textarea>
 
       </article>
