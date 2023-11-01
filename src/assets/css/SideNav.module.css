@@ -49,7 +49,6 @@
 }
 
 /* Tasks */
-
 .taskContainer {
   display: grid;
   justify-content: end;
@@ -69,7 +68,6 @@
   border-radius: 12px 0px 0px 12px;
   gap: 24px;
   transition: .3s;
-
 }
 
 .task:not(.taskActive):hover{

@@ -5,7 +5,7 @@ import {ReactComponent as IconFile} from '../assets/img/iconFile.svg';
 import Task from './Task';
 import useLocalStorage, { newTask } from '../Hooks/useLocalStorage';
 
-function SideNav({data, setData, setTaskActive}) {
+function SideNav({data, setData, setTaskActive, taskActive}) {
 
   // Criar um novo arquivo/task
   function handleClick() {
@@ -37,12 +37,9 @@ function SideNav({data, setData, setTaskActive}) {
           setData={setData}
           data={data}
           setTaskActive={setTaskActive}
+          taskActive={taskActive}
            />
         ))}
-
-        <div className={`${styles.task} ${styles.taskDesactive}`} id='task1'>
-          <p>Churrasco do Diego</p>
-        </div>
       </div>
       
     </section>

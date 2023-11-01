@@ -15,7 +15,9 @@ function Home() {
       <SideNav
         setData={setData}
         data={data}
-        setTaskActive={setTaskActive} />
+        setTaskActive={setTaskActive} 
+        taskActive={taskActive} 
+      />
       <section className={styles.container}>
         {(taskActive.title === undefined) ? (
           <TaskHome />
