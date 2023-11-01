@@ -1,8 +1,7 @@
 import React from 'react';
 
 export const newTask = (id, title = 'undefined', body = '') => {
-  console.log(title, body)
-  return {id: 'task' + id,
+  return {id: id,
   title: title,
   body: body,
   }

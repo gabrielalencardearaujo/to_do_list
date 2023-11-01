@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Taks() {
+function Taks2() {
   return (
     <div>Taks</div>
   )
 }
 
-export default Taks
+export default Taks2

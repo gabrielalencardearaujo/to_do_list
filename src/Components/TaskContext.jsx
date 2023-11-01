@@ -24,15 +24,12 @@ function TaskContext({ taskActive, setData, data }) {
   }, [taskActive])
 
   function handleFocus() {
-    //PROBLEMAS AQUI
-    // const id = taskActive.id.split('k')[1];
-    
-    // const tasksUpdate = data.map((task) => {
-    //   if(task.id === taskActive.id) return newTask(taskActive.id, valueTitle, valueText);
-    //   else return task
-    // })
-    // console.log('desfoque')
-    // setData([...tasksUpdate])
+    //PROBLEMAS AQUI. So esta salvando uma vez. E apenas o title esta salvando.
+    const tasksUpdate = data.map((task) => {
+      if(task.id === taskActive.id) return newTask(taskActive.id, valueTitle, valueText);
+      else return task
+    })
+    setData([...tasksUpdate])
   }
 
   return (

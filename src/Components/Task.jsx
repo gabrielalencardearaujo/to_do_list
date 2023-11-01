@@ -8,8 +8,9 @@ function Task({ title, id, data, setData, setTaskActive}) {
     const ID = target.parentElement.parentElement.id || target.parentElement.id
 
     const newData = data.filter((task, index) => {
-      return task.id !== ID;
+      return task.id != ID;
     })
+    
     setData(newData);
     setTaskActive({})
   }
