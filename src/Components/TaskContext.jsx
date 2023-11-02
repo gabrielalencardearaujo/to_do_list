@@ -60,7 +60,7 @@ function TaskContext({ taskActive, setData, data, setTaskActive }) {
           type='text'
           value={valueTitle}
           onChange={({ target }) => setValueTitle(target.value)}
-          placeholder={(taskActive.title) ? 'undefined' : ''}
+          placeholder={(taskActive.title) ? 'Titulo' : ''}
           onBlur={handleFocus}
           disabled={read}
         />
