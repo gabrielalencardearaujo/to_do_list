@@ -6,6 +6,7 @@ import TaskContext from './TaskContext'
 import useLocalStorage from '../Hooks/useLocalStorage';
 import TaskHome from './TaskHome';
 
+
 function Home() {
   const { data, setData } = useLocalStorage();
   const [taskActive, setTaskActive] = React.useState({});
@@ -15,8 +16,8 @@ function Home() {
       <SideNav
         setData={setData}
         data={data}
-        setTaskActive={setTaskActive} 
-        taskActive={taskActive} 
+        setTaskActive={setTaskActive}
+        taskActive={taskActive}
       />
       <section className={styles.container}>
         {(taskActive.title === undefined) ? (
@@ -26,7 +27,6 @@ function Home() {
         )}
       </section>
     </main>
-
   )
 }
 

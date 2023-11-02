@@ -1,20 +1,17 @@
 import React from 'react'; 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TaskStorage from './TaskStorage';
 import Home from './Components/Home';
+import useLocalStorage from './Hooks/useLocalStorage';
 
 const App = () => {
-
+  const {data, setData} = useLocalStorage();
   return (
     <BrowserRouter>
-      <TaskStorage>
-        <Routes>
-          <Route path='/' element={<Home />} />
-        </Routes>
-      </TaskStorage>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
     </BrowserRouter>
   )
 }
-
 
 export { App }

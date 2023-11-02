@@ -3,10 +3,14 @@ import styles from '../assets/css/TaskContext.module.css';
 import { ReactComponent as CloseTask } from '../assets/img/deleteTask.svg';
 import { ReactComponent as EditTask } from '../assets/img/iconPencilEdit.svg';
 import { newTask } from '../Hooks/useLocalStorage';
+import InputTitle from './Inputs/InputTitle';
+import InputContent from './Inputs/InputContent';
+import TaskHome from './TaskHome';
 
 function TaskContext({ taskActive, setData, data }) {
   const [valueTitle, setValueTitle] = React.useState('');
   const [valueText, setValueText] = React.useState('');
+  const [closed, setClosed] = React.useState(false);
 
   function handleHeight({ target }) {
     target.style.height = '300px';
@@ -24,42 +28,48 @@ function TaskContext({ taskActive, setData, data }) {
   }, [taskActive])
 
   function handleFocus() {
-    //PROBLEMAS AQUI. So esta salvando uma vez. E apenas o title esta salvando.
     const tasksUpdate = data.map((task) => {
-      if(task.id === taskActive.id) return newTask(taskActive.id, valueTitle, valueText);
+      if (task.id === taskActive.id) return newTask(taskActive.id, valueTitle, valueText);
       else return task
     })
     setData([...tasksUpdate])
   }
 
   return (
-    <div>
-      <div className={styles.containerIcons}>
-        <EditTask className={styles.closeTask} />
-        <CloseTask className={styles.closeTask} />
-      </div>
+    <>
+      {(closed) ? (
+        <div>
+          <div className={styles.containerIcons}>
+            <EditTask className={styles.closeTask} />
+            <CloseTask onClick={setClosed((closed) => !closed)} className={styles.closeTask} />
+          </div>
 
-      <article className={styles.containerContext}>
-        <input
-          className={styles.title}
-          type='text'
-          value={valueTitle}
-          onChange={({ target }) => setValueTitle(target.value)}
-          placeholder={(taskActive.title) ? 'undefined' : ''}
-          onBlur={handleFocus}
-        />
+          <article className={styles.containerContext}>
+            <InputTitle
+              type='text'
+              value={valueTitle}
+              onChange={({ target }) => setValueTitle(target.value)}
+              placeholder={(taskActive.title) ? 'undefined' : ''}
+              onBlur={handleFocus}
+              data={data}
+              setData={setData}
+              taskActive={taskActive}
+            />
 
-        <textarea
-          id='idTextarea'
-          className={styles.context}
-          value={valueText}
-          onChange={({ target }) => setValueText(target.value)}
-          onInput={handleHeight}
-          onBlur={handleFocus}
-        ></textarea>
+            <InputContent
+              id='idTextarea'
+              value={valueText}
+              onChange={({ target }) => setValueText(target.value)}
+              onInput={handleHeight}
+              onBlur={handleFocus}
+            />
+          </article>
+        </div>
+      ) : (
+        <TaskHome />
+      )}
+    </>
 
-      </article>
-    </div>
   )
 }
 
