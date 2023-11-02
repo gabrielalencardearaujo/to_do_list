@@ -15,11 +15,14 @@
 .closeTask {
   width: 26px;
   height: 27px;
+  cursor: pointer;
 }
 
 .closeTask path {
   stroke: var(--color-base-4);
+  fill: var(--color-base-4);
 }
+
 
 /* CONTEXT */
 

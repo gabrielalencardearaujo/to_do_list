@@ -1,7 +1,6 @@
 import React from 'react';
 import { ReactComponent as DeleteTaskSVG } from '../assets/img/deleteTask.svg';
 import styles from '../assets/css/SideNav.module.css';
-import { newTask } from '../Hooks/useLocalStorage';
 
 function Task({ title, id, data, setData, setTaskActive, taskActive }) {
 
@@ -17,7 +16,6 @@ function Task({ title, id, data, setData, setTaskActive, taskActive }) {
 
   function handleClick({ target }) {
      const clickTask = data.filter((task) => target.id == task.id);
-     console.log('oi')
      setTaskActive(...clickTask);
   }
 

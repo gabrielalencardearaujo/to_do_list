@@ -2,15 +2,16 @@ import React from 'react';
 import styles from '../assets/css/TaskContext.module.css';
 import { ReactComponent as CloseTask } from '../assets/img/deleteTask.svg';
 import { ReactComponent as EditTask } from '../assets/img/iconPencilEdit.svg';
+import { ReactComponent as ReadTask } from '../assets/img/book-open-solid.svg';
 import { newTask } from '../Hooks/useLocalStorage';
 import InputTitle from './Inputs/InputTitle';
 import InputContent from './Inputs/InputContent';
 import TaskHome from './TaskHome';
 
-function TaskContext({ taskActive, setData, data }) {
+function TaskContext({ taskActive, setData, data, setTaskActive }) {
   const [valueTitle, setValueTitle] = React.useState('');
   const [valueText, setValueText] = React.useState('');
-  const [closed, setClosed] = React.useState(false);
+  const [read, setRead] = React.useState(false);
 
   function handleHeight({ target }) {
     target.style.height = '300px';
@@ -35,41 +36,45 @@ function TaskContext({ taskActive, setData, data }) {
     setData([...tasksUpdate])
   }
 
+  function handleClosed() {
+    setTaskActive({
+      id: -1,
+      title: undefined,
+      body: '',
+    })
+  }
+
   return (
-    <>
-      {(closed) ? (
-        <div>
-          <div className={styles.containerIcons}>
-            <EditTask className={styles.closeTask} />
-            <CloseTask onClick={setClosed((closed) => !closed)} className={styles.closeTask} />
-          </div>
+    <div>
+      <div className={styles.containerIcons}>
+         {(read) ? (
+          <EditTask onClick={() => setRead(!read)} className={styles.closeTask}/>
+        ) : (
+          <ReadTask onClick={() => setRead(!read)} className={styles.closeTask}/>
+        ) }
+        <CloseTask onClick={handleClosed} className={styles.closeTask} />
+      </div>
 
-          <article className={styles.containerContext}>
-            <InputTitle
-              type='text'
-              value={valueTitle}
-              onChange={({ target }) => setValueTitle(target.value)}
-              placeholder={(taskActive.title) ? 'undefined' : ''}
-              onBlur={handleFocus}
-              data={data}
-              setData={setData}
-              taskActive={taskActive}
-            />
+      <article className={styles.containerContext}>
+        <InputTitle
+          type='text'
+          value={valueTitle}
+          onChange={({ target }) => setValueTitle(target.value)}
+          placeholder={(taskActive.title) ? 'undefined' : ''}
+          onBlur={handleFocus}
+          disabled={read}
+        />
 
-            <InputContent
-              id='idTextarea'
-              value={valueText}
-              onChange={({ target }) => setValueText(target.value)}
-              onInput={handleHeight}
-              onBlur={handleFocus}
-            />
-          </article>
-        </div>
-      ) : (
-        <TaskHome />
-      )}
-    </>
-
+        <InputContent
+          id='idTextarea'
+          value={valueText}
+          onChange={({ target }) => setValueText(target.value)}
+          onInput={handleHeight}
+          onBlur={handleFocus}
+          disabled={read}
+        />
+      </article>
+    </div>
   )
 }
 
