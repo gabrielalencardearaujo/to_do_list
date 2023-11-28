@@ -79,15 +79,3 @@ function TaskContext({ taskActive, setData, data, setTaskActive }) {
 }
 
 export default TaskContext
-
-// setStorage({
-//   title: target.value,
-//   content: valueText,
-//   id: target.id,
-// });
-
-// setStorage({
-//   title: valueTitle,
-//   content: target.value,
-//   id: target.id,
-// });
