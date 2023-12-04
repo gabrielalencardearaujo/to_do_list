@@ -24,7 +24,6 @@ function SideNav({data, setData, setTaskActive, taskActive}) {
     <section className={styles.sideBarContainer}>
       <div className={styles.title}>To do List</div>
       <div className={styles.iconsDiv}>
-        <IconFolder onClick={handleClick} className={styles.icon}/>
         <IconFile onClick={handleClick} className={styles.icon} />
       </div>
 

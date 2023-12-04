@@ -1,7 +1,8 @@
 .container {
   display: grid;
   min-width: 480px;
-  /* height: 100%; */
+  /* min-height: 100vh; */
+  height: 100%;
 }
 
 .containerIcons {
@@ -23,7 +24,6 @@
   fill: var(--color-base-4);
 }
 
-
 /* CONTEXT */
 
 .containerContext {
@@ -38,13 +38,13 @@
 .containerContext textarea {
   background-color: var(--color-base-8);
   resize: none;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .containerContext textarea{
   border: 0 none;
   outline: none;
-  min-height: 800px;
+  min-height: 700px;
 }
 
 input.title {

@@ -7,24 +7,19 @@ export const newTask = (id, title = 'undefined', body = '') => {
   }
 };
 
+function getLocalStorage() {
+  const local = window.localStorage.getItem('tasks');
+
+    if(local) return(JSON.parse(local));
+    else return([]);
+}
+
 function useLocalStorage() {
-  const [data, setData] = React.useState([]);
-
+  const [data, setData] = React.useState(getLocalStorage());
+  
   React.useEffect(() => {
-    const local = window.localStorage.getItem('tasks');
-
-    if(local) setData(JSON.parse(local));
-    else setData([]);
-
-  }, [])
-
-  React.useEffect(() => {
-    setLocalStorage(data);
+    window.localStorage.setItem('tasks', JSON.stringify(data))
   }, [data])
-
-  function setLocalStorage(value) {
-    window.localStorage.setItem('tasks', JSON.stringify(value))
-  }
 
   return{
     data,

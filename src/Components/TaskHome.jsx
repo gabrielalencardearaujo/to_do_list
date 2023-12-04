@@ -6,8 +6,6 @@ function TaskHome() {
     <div className={styles.containerHome}>
       <div>
         <h1>To do List</h1>
-        <p>Create new Folder ( Ctrl + , )</p>
-        <p>Create new File ( Ctrl + . )</p>
       </div>
     </div>
   )
