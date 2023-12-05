@@ -5,11 +5,17 @@
   height: 100%;
   z-index: 10;
   background-color: #3D3A50;
+  transition: .3s;
+}
+
+.menuClosed {
+  width: 90px;
 }
 
 .title {
   margin: 10%;
-  margin-bottom: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-family: Inria Sans;
   font-size: 32px;
   font-weight: 400;
@@ -20,12 +26,18 @@
   gap: 10px;
 }
 
-.title::before {
-  content: '';
-  display: inline-block;
-  width: 25px;
-  height: 10px;
-  background-color: var(--color-primary-3);
+.title p {
+  transition: .3s;
+}
+
+.center {
+  justify-content: center;
+}
+
+.iconMenu {
+  cursor: pointer;
+  align-self: center;
+  justify-items: center;
 }
 
 .iconsDiv {
@@ -112,4 +124,8 @@
 
 .deleteTask:hover {
   cursor: pointer;
+}
+
+.notVisible {
+  display: none;
 }
