@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../assets/css/SideNav.module.css";
 import { ReactComponent as IconFile } from "../assets/img/iconFile.svg";
+import { ReactComponent as DeleteTaskSVG } from '../assets/img/deleteTask.svg';
 import { ReactComponent as IconMenu } from "../assets/img/iconMenu.svg";
 import Task from "./Task";
 import { newTask } from "../Hooks/useLocalStorage";
@@ -34,8 +35,12 @@ function SideNav({ data, setData, setTaskActive, taskActive }) {
       }
     >
       <div className={menu ? styles.title : `${styles.title} ${styles.center}`}>
+        {menu ? <>
+          <DeleteTaskSVG onClick={toggleMenu} className={styles.iconMenu} />
+          <p>To do List</p>
+        </> : 
         <IconMenu onClick={toggleMenu} className={styles.iconMenu} />
-        {menu ? <p>To do List</p> : ""}
+        }
       </div>
 
       <div className={styles.iconsDiv}>
